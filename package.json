@@ -1,25 +1,54 @@
 {
   "name": "le-coin-des-outils-facturation",
   "version": "1.0.0",
-  "description": "Logiciel de facturation et devis pour Le Coin des Outils (Electron + React + SQLite)",
+  "description": "Logiciel de facturation et gestion de quincaillerie - Le Coin des Outils",
   "main": "electron-main.js",
-  "scripts": {
-    "dev": "concurrently \"npm:dev:*\"",
-    "dev:react": "vite",
-    "dev:electron": "electron .",
-    "build": "vite build && electron-builder --publish never"
-  },
   "author": "Le Coin des Outils",
   "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "start": "electron .",
+    "build": "vite build && electron-builder"
+  },
   "dependencies": {
     "better-sqlite3": "^9.0.0",
-    "electron": "^30.0.0",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0"
+    "electron": "^31.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "electron-builder": "^24.6.0",
-    "vite": "^5.1.0",
-    "concurrently": "^8.0.1"
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^5.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.lecoindesoutils.facturation",
+    "productName": "Le Coin des Outils – Facturation",
+    "copyright": "© 2025 Le Coin des Outils",
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "electron-main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "createDesktopShortcut": true
+    }
   }
 }
