@@ -1,0 +1,25 @@
+{
+  "name": "le-coin-des-outils-facturation",
+  "version": "1.0.0",
+  "description": "Logiciel de facturation et devis pour Le Coin des Outils (Electron + React + SQLite)",
+  "main": "electron-main.js",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:react": "vite",
+    "dev:electron": "electron .",
+    "build": "vite build && electron-builder --publish never"
+  },
+  "author": "Le Coin des Outils",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^9.0.0",
+    "electron": "^30.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.6.0",
+    "vite": "^5.1.0",
+    "concurrently": "^8.0.1"
+  }
+}
